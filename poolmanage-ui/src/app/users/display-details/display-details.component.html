@@ -1,0 +1,11 @@
+<div *ngIf="showUpdateForm">
+    <form [formGroup]="updateNamesForm">
+        <input type="text" placeholder="new first name" formControlName="fname">
+        <input type="text" placeholder="new last name" formControlName="lname">
+        <button (click)="changeNames();">Update</button>
+    </form>
+</div>
+<div *ngIf="userObject" class="card">
+    <p *ngFor="let item of userKeys">{{item}}: {{userObject[item]}}</p>
+    <app-remove-user [userId]="userObject._id" (deleted)="handleDeleted()"></app-remove-user>
+</div>

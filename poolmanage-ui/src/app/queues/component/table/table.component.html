@@ -1,0 +1,32 @@
+<div class="formdesign">
+  <form [formGroup]="matchForm">
+    <input type="text" placeholder="Type Player's 1 name..." formControlName="player1name">
+    <input type="text" placeholder="Type Player's 2 name..." formControlName="player2name">
+    <input type="number" placeholder="gameRules" formControlName="gameRules">
+  </form>
+</div>
+<div class="buttondesign">
+  <button class="btn btn-primary but" (click)="clicked2()">Add Players</button>
+</div>
+<div class="tabledesign">
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Player 1</th>
+        <th scope="col"></th>
+        <th scope="col">Player 2</th>
+        <th scope="col">Rule Set</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let queue of queues">
+        <td>{{queue.player1name}}</td>
+        <td>vs</td>
+        <td>{{queue.player2name}}</td>
+        <td>{{queue.gameRules}}</td>
+        <td><button class="btn btn-outline-info but" (click)="updateQueue(queue)"> Update</button></td>
+        <td><button class="btn btn-outline-danger but" (click)="delete(queue)"> Delete</button></td>
+      </tr>
+    </tbody>
+  </table>
+</div>

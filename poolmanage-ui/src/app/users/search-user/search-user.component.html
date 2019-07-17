@@ -1,0 +1,9 @@
+<div>
+    {{currentUsername}}
+<button (click)="getAllUsers();">Show all users</button>
+<form [formGroup]="loginForm">
+    <input type="text" placeholder="username" formControlName="username">
+    <button (click)="getSingleUser();">login</button>
+</form>
+<app-display-details *ngFor="let u of allUsers" [user]="u" (updated)="getSingleUser()" (deleted)="getAllUsers()"></app-display-details>
+</div>
